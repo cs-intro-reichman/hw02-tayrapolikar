@@ -4,7 +4,7 @@ public class OneOfEach {
 		boolean boy = false;
 		int numOfChildren = 0;
 
-		while ((girl&&boy)==false) {
+		while (((girl)&&(boy)))==false) {
 			double gender = (Math.random());
 			if (gender >0.5) {
 				System.out.print("b ");
@@ -15,6 +15,7 @@ public class OneOfEach {
 			}
 			numOfChildren++;
 		}
-		System.out.println("\nYou made it... and you now have " + numOfChildren + " children.");
+		System.out.println();
+		System.out.print("You made it... and you now have " + numOfChildren + " children.");
 	}
 }
