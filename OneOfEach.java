@@ -6,13 +6,17 @@ public class OneOfEach {
 		while (!(girl&&boy)){
 			double gender=Math.random();
 			if(gender<0.5){
-				System.out.println("b");
+				System.out.print("b ");
 				boy=true;
 			} else {
-				System.out.println("g");
+				System.out.print("g ");
 				girl=true;
 			}
 			numbofchildren++;
-			System.out.println("You made it... and now you have "+numbofchildren+" children.");
+
 
 		}
+		System.out.println("\nYou made it... and now you have "+numbofchildren+" children.");
+
+	}
+}
