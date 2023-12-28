@@ -1,22 +1,21 @@
 public class OneOfEach {
-	public static void main (String[] args) {
-		boolean girl=false;
-		boolean boy=false;
-		int numbofchildren=0;
-		while (!(girl&&boy)){
-			double gender=Math.random();
-			if(gender<0.5){
+	public static void main(String[] args) {
+		boolean girl = false;
+		boolean boy = false;
+		int numOfChildren = 0;
+
+		while (!(girl&&boy)) {
+			int gender = (int) (Math.random()*2);
+			if (gender == 0) {
 				System.out.print("b ");
-				boy=true;
+				boy = true;
 			} else {
 				System.out.print("g ");
-				girl=true;
+				girl = true;
 			}
-			numbofchildren++;
-
-
+			numOfChildren++;
 		}
-		System.out.println("\nYou made it... and now you have "+numbofchildren+" children.");
 
+		System.out.println("\nYou made it... and you now have " + numOfChildren + " children.");
 	}
 }
