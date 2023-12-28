@@ -15,7 +15,6 @@ public class OneOfEach {
 			}
 			numOfChildren++;
 		}
-		System.out.println();
 		System.out.println("\nYou made it... and you now have " + numOfChildren + " children.");
 	}
 }
