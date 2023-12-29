@@ -12,8 +12,11 @@ import java.util.Random;
 
 public class OneOfEachStats {
 	public static void main(String[] args) {
+		double T=Double.parseDouble(args[0]);
+		int seed=Integer.parseInt(args[0]);
+		double trial = T;
 
-		Random generator=new Random();
+		Random generator=new Random(seed);
 
 
 		int countGirl = 0;
@@ -22,9 +25,7 @@ public class OneOfEachStats {
 
 		int sumOfAll=0;
 
-		double T=Double.parseDouble(args[0]);
-		int seed=Integer.parseInt(args[0]);
-		double trial = T;
+
 
 		int numberOf2children=0;
 		int numberOf3children=0;
