@@ -12,70 +12,86 @@ import java.util.Random;
 
 public class OneOfEachStats {
 	public static void main(String[] args) {
-		Random generator = new Random();
+
+		Random generator=new Random();
+
 
 		int countGirl = 0;
 		int countBoy = 0;
-		int sumOfAll = 0;
+		int sum = 0;
 
-		double T = Double.parseDouble(args[0]);
+		int sumOfAll=0;
+
+		double T=Double.parseDouble(args[0]);
+		int seed=Integer.parseInt(args[0]);
 		double trial = T;
 
-		int numberOf2children = 0;
-		int numberOf3children = 0;
-		int numberOf4childrenOrMore = 0;
-		int mod = 0;
+		int numberOf2children=0;
+		int numberOf3children=0;
+		int numberOf4childrenOrMore=0;
+		int mod=0;
 
-		for (int j = 0; j < trial; j++) {
-			int number = (int) (generator.nextDouble() * 2);
-
-			while (true) {
-				if (number == 0) {
+		for (int j = 0; j <trial ; j++) {
+			int number=(int) (generator.nextDouble()*2);
+			if(number==0) {
+				while(number==0){
 					countGirl++;
-				} else {
-					countBoy++;
+					number=(int) (generator.nextDouble()*2);
 				}
 
-				if (countGirl > 0 && countBoy > 0) {
-					break;
-				}
+				countBoy++;
+				sum=countGirl+countBoy;
+				sumOfAll=sumOfAll+sum; //total number of children
 
-				number = (int) (generator.nextDouble() * 2);
+				countBoy=0;
+				countGirl=0;
 			}
+			else{
+				while(number==1){
+					countBoy++;
+					number=(int) (generator.nextDouble()*2);
+				}
 
-			int sum = countGirl + countBoy;
-			sumOfAll += sum; // Total number of children
 
-			countBoy = 0;
-			countGirl = 0;
+				countGirl++;
+				sum=countGirl+countBoy;
+				sumOfAll=sumOfAll+sum; //total number of children
 
-			if (sum == 2) {
+				countBoy=0;
+				countGirl=0;
+			}
+			if(sum==2){
 				numberOf2children++;
-			} else if (sum == 3) {
+			}
+			else if(sum==3){
 				numberOf3children++;
-			} else {
+			}
+			else {
 				numberOf4childrenOrMore++;
 			}
+
 		}
 
-		if (numberOf2children > numberOf3children && numberOf2children > numberOf4childrenOrMore) {
+		if(numberOf2children>numberOf3children && numberOf2children>numberOf4childrenOrMore) {
 			mod = 2;
-		} else if (numberOf3children > numberOf2children && numberOf3children > numberOf4childrenOrMore) {
-			mod = 3;
+		} else if(numberOf3children>numberOf2children && numberOf3children>numberOf4childrenOrMore){
+			mod=3;
 		} else {
-			mod = 4;
+			mod=4;
 		}
 
-		double average = (double) sumOfAll / trial;
-		System.out.println("Average: " + average + " children to get at least one of each gender.");
-		System.out.println("Number of families with 2 children: " + numberOf2children);
-		System.out.println("Number of families with 3 children: " + numberOf3children);
-		System.out.println("Number of families with 4 or more children: " + numberOf4childrenOrMore);
 
-		if (mod < 4) {
-			System.out.println("The most common number of children is " + mod + ".");
-		} else {
-			System.out.println("The most common number of children is: " + mod + " or more.");
+		double average=sumOfAll/trial;
+		System.out.println("Average: "+ average + " children to get at least one of each gender." );
+		System.out.println("Number of families with 2 children: "+numberOf2children);
+		System.out.println("Number of families with 3 children: "+numberOf3children);
+		System.out.println("Number of families with 4 or more children: "+numberOf4childrenOrMore);
+		if(mod<4){
+			System.out.println("The most common number of children is "+mod+ ".");
+		}
+
+		else {
+			System.out.println("The most common number of children is: "+mod+ " or more.");
 		}
 	}
 }
