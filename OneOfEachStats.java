@@ -13,7 +13,7 @@ import java.util.Random;
 public class OneOfEachStats {
 	public static void main(String[] args) {
 		double T=Double.parseDouble(args[0]);
-		int seed=Integer.parseInt(args[0]);
+		int seed=Integer.parseInt(args[1]);
 		double trial = T;
 
 		Random generator=new Random(seed);
