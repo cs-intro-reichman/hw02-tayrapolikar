@@ -7,16 +7,16 @@ public class OneOfEach {
 		int number = (int) (Math.random() * 2);
 
 		if (number == 0) { //girl
-			while (number == 0) { //erkek doğana kadar tekrar
+			while (number == 0) { //until a male is born repeat
 				countGirl++;
 				number = (int) (Math.random() * 2);
 
 			}
-			for (int i = 0; i < countGirl; i++) { //erkek doğdu loop bitti k k e e yazıya geçirdik
+			for (int i = 0; i < countGirl; i++) { // a boy was born the loop ended g g b b we put in words
 				System.out.print("g ");
 			}
 			System.out.println("b ");
-			countBoy++; //erkek 1 arttı
+			countBoy++;
 			sum = countGirl + countBoy;
 
 			System.out.println("You made it...and you have " + sum + " children.");
